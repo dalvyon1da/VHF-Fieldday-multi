@@ -39,11 +39,11 @@ h1 {
   font-weight: bold;
 }
 
-/* HEURES (même style mais couleur différente) */
+/* HEURES (style compteur mais bleu clair) */
 .time-box {
   background: #222;
   padding: 6px 12px;
-  border-left: 6px solid #33ccff; /* BLEU CLAIR */
+  border-left: 6px solid #33ccff;
   font-size: 14px;
   display: flex;
   flex-direction: column;
@@ -72,29 +72,10 @@ h1 {
   background: #ff3333;
 }
 
-/* COLONNE GAUCHE */
-.left-column {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* BLOC BLEU */
-.table-title {
-  font-size: 16px;
-  font-weight: bold;
-  color: #3399ff;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.table-title::before {
-  content: "";
-  width: 6px;
-  height: 22px;
-  background: #3399ff;
-  border-radius: 3px;
+/* WRAPPER AVEC LIGNE VERTE À GAUCHE */
+.table-wrapper {
+  border-left: 6px solid #00ff55; /* LIGNE VERTE */
+  padding-left: 10px;
 }
 
 /* TABLEAU ULTRA COMPACT */
@@ -107,13 +88,15 @@ table {
   box-shadow: 0 0 10px #000;
 }
 
-/* EN-TÊTES */
+/* EN-TÊTES EN VERT */
 th {
   background: #222;
   padding: 4px;
   font-size: 12px;
   border: 1px solid #333;
   text-align: center;
+  color: #00ff55; /* TITRES EN VERT */
+  font-weight: bold;
 }
 
 /* CELLULES */
