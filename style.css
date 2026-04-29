@@ -16,11 +16,18 @@ th, td {
   padding: 10px;
 }
 
-td {
-  height: 25px;
+/* Colonnes 160 / 80 / 40 plus petites */
+th:nth-child(2),
+th:nth-child(3),
+th:nth-child(4),
+td:nth-child(2),
+td:nth-child(3),
+td:nth-child(4) {
+  width: 50px;
+  text-align: center;
 }
 
+/* Couleurs des bandes */
 .active160 { background: #0044ff; }
 .active80  { background: #ff0000; }
 .active40  { background: #00aa00; }
-
