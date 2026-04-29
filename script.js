@@ -25,6 +25,25 @@ stations.forEach(call => {
   tbody.appendChild(tr);
 });
 
+// Compteur QSO
+let qsoCount = 0;
+const qsoBox = document.getElementById("qsoCounter");
+
+// Bloc stations restantes
+const remainingList = document.getElementById("remainingList");
+let remainingStations = new Set(stations);
+
+// Affichage initial
+function updateRemainingBox() {
+  remainingList.innerHTML = "";
+  remainingStations.forEach(call => {
+    const li = document.createElement("li");
+    li.textContent = call;
+    remainingList.appendChild(li);
+  });
+}
+updateRemainingBox();
+
 // Connexion WebSocket
 const ws = new WebSocket("ws://localhost:8765");
 
@@ -37,8 +56,18 @@ ws.onmessage = (event) => {
   const row = document.getElementById(call);
   if (!row) return;
 
+  // Coloration bande
   if (band === "160m") row.querySelector(".b160").classList.add("active160");
   if (band === "80m")  row.querySelector(".b80").classList.add("active80");
   if (band === "40m")  row.querySelector(".b40").classList.add("active40");
-};
 
+  // Mise à jour stations restantes
+  if (remainingStations.has(call)) {
+    remainingStations.delete(call);
+    updateRemainingBox();
+  }
+
+  // Mise à jour compteur
+  qsoCount++;
+  qsoBox.textContent = "QSO : " + qsoCount;
+};
