@@ -26,15 +26,41 @@ h1 {
   color: #00ff88;
   padding: 6px 12px;
   display: inline-block;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   border-left: 6px solid #00ff88;
   font-size: 14px;
   font-weight: bold;
 }
 
-/* BLOC STATIONS NON FAITES */
-.remaining-box {
+/* LIGNE HORIZONTALE : ROUGE + VERT */
+.top-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 25px; /* espace entre rouge et vert */
   margin-bottom: 20px;
+}
+
+/* BLOC ROUGE */
+.table-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff3333;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.table-title::before {
+  content: "";
+  width: 6px;
+  height: 22px;
+  background: #ff3333;
+  border-radius: 3px;
+}
+
+/* BLOC VERT */
+.remaining-box {
   padding: 10px;
   width: 220px;
   background: #1a1a1a;
@@ -60,26 +86,6 @@ h1 {
   font-size: 13px;
   padding: 2px 0;
   border-bottom: 1px solid #333;
-}
-
-/* TITRE TABLEAU */
-.table-title {
-  font-size: 16px;
-  font-weight: bold;
-  color: #ff3333;
-  margin-bottom: 8px;
-  text-align: left;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.table-title::before {
-  content: "";
-  width: 6px;
-  height: 22px;
-  background: #ff3333;
-  border-radius: 3px;
 }
 
 /* TABLEAU ULTRA COMPACT */
