@@ -11,39 +11,40 @@ h1 {
   font-size: 22px;
 }
 
-/* Tableau compact */
+/* TABLEAU ULTRA COMPACT */
 table {
-  margin: auto;
+  margin: 20px auto;
   border-collapse: collapse;
-  width: 420px;        /* <<< tableau compact */
+  width: 360px;        /* <<< TABLEAU PETIT */
   background: #1a1a1a;
   border-radius: 6px;
   overflow: hidden;
+  box-shadow: 0 0 10px #000;
 }
 
 /* En-têtes */
 th {
   background: #222;
-  padding: 6px;        /* <<< plus petit */
-  font-size: 14px;
+  padding: 4px;        /* <<< PETIT */
+  font-size: 13px;
 }
 
 /* Cellules */
 td {
   border: 1px solid #333;
-  padding: 4px;        /* <<< plus petit */
-  height: 22px;        /* <<< ligne plus fine */
-  font-size: 13px;
+  padding: 3px;        /* <<< PETIT */
+  height: 18px;        /* <<< LIGNES FINES */
+  font-size: 12px;
 }
 
-/* Colonnes 160 / 80 / 40 petites */
+/* Colonnes 160 / 80 / 40 très petites */
 th:nth-child(2),
 th:nth-child(3),
 th:nth-child(4),
 td:nth-child(2),
 td:nth-child(3),
 td:nth-child(4) {
-  width: 40px;         /* <<< encore plus petit */
+  width: 32px;         /* <<< PETIT ET CARRÉ */
   text-align: center;
 }
 
