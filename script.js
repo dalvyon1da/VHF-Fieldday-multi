@@ -29,6 +29,20 @@ stations.forEach(call => {
 let qsoCount = 0;
 const qsoBox = document.getElementById("qsoCounter");
 
+// Mise à jour des heures
+function updateTime() {
+  const now = new Date();
+
+  const local = now.toLocaleTimeString("fr-FR", { hour12: false });
+  const utc = now.toUTCString().split(" ")[4];
+
+  document.getElementById("localTime").textContent = "Local : " + local;
+  document.getElementById("utcTime").textContent = "UTC : " + utc;
+}
+
+setInterval(updateTime, 1000);
+updateTime();
+
 // Connexion WebSocket
 const ws = new WebSocket("ws://localhost:8765");
 
@@ -41,12 +55,23 @@ ws.onmessage = (event) => {
   const row = document.getElementById(call);
   if (!row) return;
 
-  // Coloration bande
   if (band === "160m") row.querySelector(".b160").classList.add("active160");
   if (band === "80m")  row.querySelector(".b80").classList.add("active80");
   if (band === "40m")  row.querySelector(".b40").classList.add("active40");
 
-  // Mise à jour compteur
   qsoCount++;
   qsoBox.textContent = "QSO : " + qsoCount;
 };
+
+// RESET
+document.getElementById("resetBtn").addEventListener("click", () => {
+
+  // Reset compteur
+  qsoCount = 0;
+  qsoBox.textContent = "QSO : 0";
+
+  // Reset couleurs du tableau
+  document.querySelectorAll(".b160, .b80, .b40").forEach(cell => {
+    cell.classList.remove("active160", "active80", "active40");
+  });
+});
