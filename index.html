@@ -8,39 +8,44 @@
 
 <body>
 
-<h1>Fieldday Live – ON4CPN/P stations /P</h1>
+<h1>Fieldday Live – ON4VRA stations /P</h1>
 
-<!-- Compteur QSO -->
+<!-- Compteur QSO ORANGE -->
 <div id="qsoCounter" class="qso-box">QSO : 0</div>
 
-<!-- Ligne horizontale : rouge + vert -->
-<div class="top-row">
+<!-- Ligne horizontale : tableau à gauche + stations restantes à droite -->
+<div class="main-row">
 
-  <!-- Bloc rouge -->
-  <div class="table-title">
-    INDICATIF – 160m – 80m – 40m
+  <!-- Colonne gauche : bande rouge + tableau -->
+  <div class="left-column">
+
+    <!-- Bande rouge -->
+    <div class="table-title">
+      INDICATIF – 160m – 80m – 40m
+    </div>
+
+    <!-- Tableau -->
+    <table id="fdTable">
+      <thead>
+        <tr>
+          <th>Indicatif</th>
+          <th>160m</th>
+          <th>80m</th>
+          <th>40m</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
   </div>
 
-  <!-- Bloc vert -->
+  <!-- Colonne droite : stations non faites -->
   <div id="remainingBox" class="remaining-box">
     <h2>Stations non faites</h2>
     <ul id="remainingList"></ul>
   </div>
 
 </div>
-
-<!-- Tableau principal -->
-<table id="fdTable">
-  <thead>
-    <tr>
-      <th>Indicatif</th>
-      <th>160m</th>
-      <th>80m</th>
-      <th>40m</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
 
 <script src="script.js"></script>
 </body>
