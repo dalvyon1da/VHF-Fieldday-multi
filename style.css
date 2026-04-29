@@ -5,6 +5,11 @@ body {
   text-align: center;
 }
 
+h1 {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 table {
   margin: auto;
   border-collapse: collapse;
@@ -23,11 +28,11 @@ th:nth-child(4),
 td:nth-child(2),
 td:nth-child(3),
 td:nth-child(4) {
-  width: 50px;
+  width: 50px;      /* Réduit de moitié */
   text-align: center;
 }
 
-/* Couleurs des bandes */
-.active160 { background: #0044ff; }
-.active80  { background: #ff0000; }
-.active40  { background: #00aa00; }
+/* Cases colorées quand un QSO arrive */
+.active160 { background: #0044ff; }  /* Bleu */
+.active80  { background: #ff0000; }  /* Rouge */
+.active40  { background: #00aa00; }  /* Vert */
