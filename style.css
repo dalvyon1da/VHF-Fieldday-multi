@@ -32,14 +32,6 @@ h1 {
   font-weight: bold;
 }
 
-/* LIGNE PRINCIPALE : tableau à gauche + stations restantes à droite */
-.main-row {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 30px; /* espace entre tableau et bloc vert */
-}
-
 /* COLONNE GAUCHE */
 .left-column {
   display: flex;
@@ -47,11 +39,11 @@ h1 {
   gap: 10px;
 }
 
-/* BLOC ROUGE */
+/* BLOC BLEU */
 .table-title {
   font-size: 16px;
   font-weight: bold;
-  color: #ff3333;
+  color: #3399ff; /* BLEU */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -61,7 +53,7 @@ h1 {
   content: "";
   width: 6px;
   height: 22px;
-  background: #ff3333;
+  background: #3399ff; /* BLEU */
   border-radius: 3px;
 }
 
@@ -107,32 +99,3 @@ td:nth-child(4) {
 .active160 { background: #0044ff; }
 .active80  { background: #ff0000; }
 .active40  { background: #00aa00; }
-
-/* BLOC VERT : stations non faites */
-.remaining-box {
-  padding: 10px;
-  width: 220px;
-  background: #1a1a1a;
-  border-left: 6px solid #00ff55;
-  border-radius: 6px;
-  color: #eee;
-  text-align: left;
-}
-
-.remaining-box h2 {
-  font-size: 16px;
-  color: #00ff55;
-  margin-bottom: 8px;
-}
-
-.remaining-box ul {
-  list-style: none;
-  padding-left: 0;
-  margin: 0;
-}
-
-.remaining-box li {
-  font-size: 13px;
-  padding: 2px 0;
-  border-bottom: 1px solid #333;
-}
