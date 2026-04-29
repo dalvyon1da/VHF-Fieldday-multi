@@ -39,11 +39,11 @@ h1 {
   font-weight: bold;
 }
 
-/* HEURES */
+/* HEURES (même style mais couleur différente) */
 .time-box {
   background: #222;
   padding: 6px 12px;
-  border-left: 6px solid #3399ff;
+  border-left: 6px solid #33ccff; /* BLEU CLAIR */
   font-size: 14px;
   display: flex;
   flex-direction: column;
@@ -51,13 +51,13 @@ h1 {
 }
 
 .time-box span {
-  color: #3399ff;
+  color: #33ccff;
   font-weight: bold;
 }
 
-/* BOUTON RESET */
+/* BOUTON RESET ROUGE */
 .reset-btn {
-  background: #0066ff;
+  background: #cc0000;
   color: white;
   border: none;
   padding: 8px 14px;
@@ -69,7 +69,7 @@ h1 {
 }
 
 .reset-btn:hover {
-  background: #3388ff;
+  background: #ff3333;
 }
 
 /* COLONNE GAUCHE */
