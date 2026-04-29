@@ -1,1 +1,26 @@
+body {
+  background: #111;
+  color: #eee;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+table {
+  margin: auto;
+  border-collapse: collapse;
+  width: 80%;
+}
+
+th, td {
+  border: 1px solid #444;
+  padding: 10px;
+}
+
+td {
+  height: 25px;
+}
+
+.active160 { background: #0044ff; }
+.active80  { background: #ff0000; }
+.active40  { background: #00aa00; }
 
