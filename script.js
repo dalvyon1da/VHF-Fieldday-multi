@@ -41,3 +41,4 @@ ws.onmessage = (event) => {
   if (band === "80m")  row.querySelector(".b80").classList.add("active80");
   if (band === "40m")  row.querySelector(".b40").classList.add("active40");
 };
+
