@@ -33,8 +33,14 @@ const qsoBox = document.getElementById("qsoCounter");
 function updateTime() {
   const now = new Date();
 
+  // Heure locale
   const local = now.toLocaleTimeString("fr-FR", { hour12: false });
-  const utc = now.toUTCString().split(" ")[4];
+
+  // Heure UTC
+  const utc =
+    now.getUTCHours().toString().padStart(2, "0") + ":" +
+    now.getUTCMinutes().toString().padStart(2, "0") + ":" +
+    now.getUTCSeconds().toString().padStart(2, "0");
 
   document.getElementById("localTime").textContent = "Local : " + local;
   document.getElementById("utcTime").textContent = "UTC : " + utc;
@@ -66,11 +72,9 @@ ws.onmessage = (event) => {
 // RESET
 document.getElementById("resetBtn").addEventListener("click", () => {
 
-  // Reset compteur
   qsoCount = 0;
   qsoBox.textContent = "QSO : 0";
 
-  // Reset couleurs du tableau
   document.querySelectorAll(".b160, .b80, .b40").forEach(cell => {
     cell.classList.remove("active160", "active80", "active40");
   });
