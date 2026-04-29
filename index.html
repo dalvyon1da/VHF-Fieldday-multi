@@ -13,17 +13,23 @@
 <!-- Compteur QSO -->
 <div id="qsoCounter" class="qso-box">QSO : 0</div>
 
-<!-- Bloc stations non faites -->
-<div id="remainingBox" class="remaining-box">
-  <h2>Stations non faites</h2>
-  <ul id="remainingList"></ul>
+<!-- Ligne horizontale : rouge + vert -->
+<div class="top-row">
+
+  <!-- Bloc rouge -->
+  <div class="table-title">
+    INDICATIF – 160m – 80m – 40m
+  </div>
+
+  <!-- Bloc vert -->
+  <div id="remainingBox" class="remaining-box">
+    <h2>Stations non faites</h2>
+    <ul id="remainingList"></ul>
+  </div>
+
 </div>
 
 <!-- Tableau principal -->
-<div class="table-title">
-  INDICATIF – 160m – 80m – 40m
-</div>
-
 <table id="fdTable">
   <thead>
     <tr>
