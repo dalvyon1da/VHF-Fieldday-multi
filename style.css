@@ -17,15 +17,56 @@ body {
 h1 {
   font-size: 20px;
   margin-bottom: 15px;
-  text-align: left; /* <<< aligné à gauche */
-  color: #eee;
+  text-align: left;
 }
 
-/* TITRE DES COLONNES EN ROUGE */
+/* COMPTEUR QSO */
+.qso-box {
+  background: #222;
+  color: #00ff88;
+  padding: 6px 12px;
+  display: inline-block;
+  margin-bottom: 15px;
+  border-left: 6px solid #00ff88;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* BLOC STATIONS NON FAITES */
+.remaining-box {
+  margin-bottom: 20px;
+  padding: 10px;
+  width: 220px;
+  background: #1a1a1a;
+  border-left: 6px solid #00ff55;
+  border-radius: 6px;
+  color: #eee;
+  text-align: left;
+}
+
+.remaining-box h2 {
+  font-size: 16px;
+  color: #00ff55;
+  margin-bottom: 8px;
+}
+
+.remaining-box ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.remaining-box li {
+  font-size: 13px;
+  padding: 2px 0;
+  border-bottom: 1px solid #333;
+}
+
+/* TITRE TABLEAU */
 .table-title {
   font-size: 16px;
   font-weight: bold;
-  color: #ff3333;       /* <<< ROUGE */
+  color: #ff3333;
   margin-bottom: 8px;
   text-align: left;
   display: flex;
@@ -33,20 +74,19 @@ h1 {
   gap: 10px;
 }
 
-/* BARRE ROUGE VERTICALE */
 .table-title::before {
   content: "";
   width: 6px;
   height: 22px;
-  background: #ff3333;  /* <<< ROUGE */
+  background: #ff3333;
   border-radius: 3px;
 }
 
 /* TABLEAU ULTRA COMPACT */
 table {
-  margin-left: 0;        /* <<< aligné à gauche */
+  margin-left: 0;
   border-collapse: collapse;
-  width: 360px;          /* <<< tableau compact */
+  width: 360px;
   background: #1a1a1a;
   border-radius: 6px;
   overflow: hidden;
@@ -70,7 +110,7 @@ td {
   font-size: 12px;
 }
 
-/* COLONNES 160 / 80 / 40 TRÈS PETITES */
+/* COLONNES BANDE */
 th:nth-child(2),
 th:nth-child(3),
 th:nth-child(4),
