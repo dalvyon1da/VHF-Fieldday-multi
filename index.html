@@ -8,12 +8,21 @@
 
 <body>
 
-<h1>Fieldday Live – ON4CPN/P RADIO CLUB CHÂTELET /P</h1>
+<h1>Fieldday Live – ON4VRA stations /P</h1>
 
-<!-- Compteur QSO ORANGE -->
-<div id="qsoCounter" class="qso-box">QSO : 0</div>
+<!-- Ligne compteur + heures + reset -->
+<div class="top-info">
+    <div id="qsoCounter" class="qso-box">QSO : 0</div>
 
-<!-- Bande bleue + tableau -->
+    <div id="timeBox" class="time-box">
+        <span id="localTime">Local : --:--:--</span>
+        <span id="utcTime">UTC : --:--:--</span>
+    </div>
+
+    <button id="resetBtn" class="reset-btn">RESET</button>
+</div>
+
+<!-- Colonne gauche : bande bleue + tableau -->
 <div class="left-column">
 
   <!-- Bande bleue -->
