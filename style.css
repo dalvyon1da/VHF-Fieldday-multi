@@ -1,54 +1,64 @@
+/* RESET pour forcer GitHub à oublier l'ancien CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* PAGE */
 body {
   background: #111;
   color: #eee;
   font-family: Arial, sans-serif;
   text-align: center;
+  padding-top: 20px;
 }
 
+/* TITRE */
 h1 {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  font-size: 22px;
+  font-size: 20px;
+  margin-bottom: 15px;
 }
 
 /* TABLEAU ULTRA COMPACT */
 table {
-  margin: 20px auto;
+  margin: 0 auto;
   border-collapse: collapse;
-  width: 360px;        /* <<< TABLEAU PETIT */
+  width: 340px;              /* <<< TABLEAU PETIT */
   background: #1a1a1a;
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 0 0 10px #000;
 }
 
-/* En-têtes */
+/* EN-TÊTES */
 th {
   background: #222;
-  padding: 4px;        /* <<< PETIT */
-  font-size: 13px;
+  padding: 4px;
+  font-size: 12px;
+  border: 1px solid #333;
 }
 
-/* Cellules */
+/* CELLULES */
 td {
   border: 1px solid #333;
-  padding: 3px;        /* <<< PETIT */
-  height: 18px;        /* <<< LIGNES FINES */
+  padding: 3px;
+  height: 18px;              /* <<< LIGNES FINES */
   font-size: 12px;
 }
 
-/* Colonnes 160 / 80 / 40 très petites */
+/* COLONNES 160 / 80 / 40 TRÈS PETITES */
 th:nth-child(2),
 th:nth-child(3),
 th:nth-child(4),
 td:nth-child(2),
 td:nth-child(3),
 td:nth-child(4) {
-  width: 32px;         /* <<< PETIT ET CARRÉ */
+  width: 28px;               /* <<< PETIT ET CARRÉ */
   text-align: center;
 }
 
-/* Couleurs des bandes */
+/* COULEURS DES BANDES */
 .active160 { background: #0044ff; }
 .active80  { background: #ff0000; }
 .active40  { background: #00aa00; }
