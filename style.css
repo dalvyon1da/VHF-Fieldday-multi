@@ -39,7 +39,7 @@ h1 {
   font-weight: bold;
 }
 
-/* HEURES (style compteur mais bleu clair) */
+/* HEURES */
 .time-box {
   background: #222;
   padding: 6px 12px;
@@ -55,7 +55,7 @@ h1 {
   font-weight: bold;
 }
 
-/* BOUTON RESET ROUGE */
+/* BOUTON RESET */
 .reset-btn {
   background: #cc0000;
   color: white;
@@ -72,13 +72,13 @@ h1 {
   background: #ff3333;
 }
 
-/* WRAPPER AVEC LIGNE VERTE À GAUCHE */
+/* WRAPPER AVEC LIGNE VERTE */
 .table-wrapper {
-  border-left: 6px solid #00ff55; /* LIGNE VERTE */
+  border-left: 6px solid #00ff55;
   padding-left: 10px;
 }
 
-/* TABLEAU ULTRA COMPACT */
+/* TABLEAU */
 table {
   border-collapse: collapse;
   width: 360px;
@@ -88,14 +88,14 @@ table {
   box-shadow: 0 0 10px #000;
 }
 
-/* EN-TÊTES EN VERT */
+/* EN-TÊTES */
 th {
   background: #222;
   padding: 4px;
   font-size: 12px;
   border: 1px solid #333;
   text-align: center;
-  color: #00ff55; /* TITRES EN VERT */
+  color: #00ff55;
   font-weight: bold;
 }
 
@@ -122,3 +122,21 @@ td:nth-child(4) {
 .active160 { background: #0044ff; }
 .active80  { background: #ff0000; }
 .active40  { background: #00aa00; }
+
+/* STATIONS AJOUTÉES */
+.new-station td {
+  background: #2a2a2a !important;
+  color: #00c8ff;
+  font-weight: bold;
+}
+
+/* TAG NEW */
+.new-tag {
+  background: #00c8ff;
+  color: #000;
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-size: 10px;
+  margin-right: 4px;
+  font-weight: bold;
+}
