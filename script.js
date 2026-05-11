@@ -1,4 +1,4 @@
-// Liste des stations 2026
+// Liste des stations officielles 2026
 const stations = [
   "ON4BAF/P","ON4CDZ/P","ON4CPN/P","ON4FA/P","ON4KSD/P","ON4MCL/P",
   "ON4MLB/P","ON4MNS/P","ON4OSA/P","ON4PHI/P","ON4RAT/P","ON4RCA/P",
@@ -8,9 +8,10 @@ const stations = [
   "ON4RAC/P","ON5UG/P","ON6ZT/P","OP6A/P"
 ];
 
-// Génération du tableau
+// Tableau
 const tbody = document.querySelector("#fdTable tbody");
 
+// Génération des stations officielles
 stations.forEach(call => {
   const tr = document.createElement("tr");
   tr.id = call;
@@ -25,18 +26,63 @@ stations.forEach(call => {
   tbody.appendChild(tr);
 });
 
+// Restauration des stations ajoutées
+const saved = JSON.parse(localStorage.getItem("newStations") || "[]");
+
+saved.forEach(call => {
+  const tr = document.createElement("tr");
+  tr.id = call;
+  tr.classList.add("new-station");
+
+  tr.innerHTML = `
+    <td><span class="new-tag">NEW</span>${call}</td>
+    <td class="b160"></td>
+    <td class="b80"></td>
+    <td class="b40"></td>
+  `;
+
+  tbody.appendChild(tr);
+});
+
+// Tri automatique
+function sortTable() {
+  const rows = Array.from(tbody.querySelectorAll("tr"));
+
+  rows.sort((a, b) => {
+    const isNewA = a.classList.contains("new-station");
+    const isNewB = b.classList.contains("new-station");
+
+    if (!isNewA && isNewB) return -1;
+    if (isNewA && !isNewB) return 1;
+
+    return a.id.localeCompare(b.id);
+  });
+
+  rows.forEach(r => tbody.appendChild(r));
+}
+
+sortTable();
+
+// Sauvegarde des nouvelles stations
+function saveNewStation(call) {
+  let saved = JSON.parse(localStorage.getItem("newStations") || "[]");
+
+  if (!saved.includes(call)) {
+    saved.push(call);
+    localStorage.setItem("newStations", JSON.stringify(saved));
+  }
+}
+
 // Compteur QSO
 let qsoCount = 0;
 const qsoBox = document.getElementById("qsoCounter");
 
-// Mise à jour des heures
+// Heures
 function updateTime() {
   const now = new Date();
 
-  // Heure locale
   const local = now.toLocaleTimeString("fr-FR", { hour12: false });
 
-  // Heure UTC
   const utc =
     now.getUTCHours().toString().padStart(2, "0") + ":" +
     now.getUTCMinutes().toString().padStart(2, "0") + ":" +
@@ -49,7 +95,7 @@ function updateTime() {
 setInterval(updateTime, 1000);
 updateTime();
 
-// Connexion WebSocket
+// WebSocket
 const ws = new WebSocket("ws://localhost:8765");
 
 ws.onmessage = (event) => {
@@ -58,13 +104,32 @@ ws.onmessage = (event) => {
   const call = data.call.toUpperCase();
   const band = data.band;
 
-  const row = document.getElementById(call);
-  if (!row) return;
+  let row = document.getElementById(call);
 
+  // Ajout automatique si station inconnue
+  if (!row) {
+    row = document.createElement("tr");
+    row.id = call;
+    row.classList.add("new-station");
+
+    row.innerHTML = `
+      <td><span class="new-tag">NEW</span>${call}</td>
+      <td class="b160"></td>
+      <td class="b80"></td>
+      <td class="b40"></td>
+    `;
+
+    tbody.appendChild(row);
+    saveNewStation(call);
+    sortTable();
+  }
+
+  // Coloration
   if (band === "160m") row.querySelector(".b160").classList.add("active160");
   if (band === "80m")  row.querySelector(".b80").classList.add("active80");
   if (band === "40m")  row.querySelector(".b40").classList.add("active40");
 
+  // Compteur
   qsoCount++;
   qsoBox.textContent = "QSO : " + qsoCount;
 };
