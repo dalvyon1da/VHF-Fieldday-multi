@@ -81,7 +81,7 @@ h1 {
 /* TABLEAU */
 table {
   border-collapse: collapse;
-  width: 360px;
+  width: 500px;
   background: #1a1a1a;
   border-radius: 6px;
   overflow: hidden;
@@ -105,23 +105,23 @@ td {
   padding: 3px;
   height: 18px;
   font-size: 12px;
+  text-align: center;
 }
 
-/* COLONNES BANDE */
-th:nth-child(2),
-th:nth-child(3),
-th:nth-child(4),
-td:nth-child(2),
-td:nth-child(3),
-td:nth-child(4) {
-  width: 30px;
-  text-align: center;
+/* Largeur des colonnes */
+th:not(:first-child),
+td:not(:first-child) {
+  width: 32px;
 }
 
 /* COULEURS DES BANDES */
 .active160 { background: #0044ff; }
 .active80  { background: #ff0000; }
 .active40  { background: #00aa00; }
+.active20  { background: #ffaa00; }
+.active15  { background: #cc00ff; }
+.active10  { background: #00ffff; }
+.active6   { background: #ff66ff; }
 
 /* STATIONS AJOUTÉES */
 .new-station td {
