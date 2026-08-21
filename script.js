@@ -1,4 +1,7 @@
-// Liste des stations officielles 2026
+// Bandes HF utilisées
+const bands = ["160m", "80m", "40m", "20m", "15m", "10m", "6m"];
+
+// Stations officielles 2026
 const stations = [
   "ON4BAF/P","ON4CDZ/P","ON4CPN/P","ON4FA/P","ON4KSD/P","ON4MCL/P",
   "ON4MLB/P","ON4MNS/P","ON4OSA/P","ON4PHI/P","ON4RAT/P","ON4RCA/P",
@@ -11,18 +14,25 @@ const stations = [
 // Tableau
 const tbody = document.querySelector("#fdTable tbody");
 
+// Génération dynamique des colonnes
+const header = document.getElementById("bandHeader");
+bands.forEach(b => {
+  const th = document.createElement("th");
+  th.textContent = b;
+  header.appendChild(th);
+});
+
 // Génération des stations officielles
 stations.forEach(call => {
   const tr = document.createElement("tr");
   tr.id = call;
 
-  tr.innerHTML = `
-    <td>${call}</td>
-    <td class="b160"></td>
-    <td class="b80"></td>
-    <td class="b40"></td>
-  `;
+  let html = `<td>${call}</td>`;
+  bands.forEach(b => {
+    html += `<td class="b${b.replace('m','')}"></td>`;
+  });
 
+  tr.innerHTML = html;
   tbody.appendChild(tr);
 });
 
@@ -34,13 +44,12 @@ saved.forEach(call => {
   tr.id = call;
   tr.classList.add("new-station");
 
-  tr.innerHTML = `
-    <td><span class="new-tag">NEW</span>${call}</td>
-    <td class="b160"></td>
-    <td class="b80"></td>
-    <td class="b40"></td>
-  `;
+  let html = `<td><span class="new-tag">NEW</span>${call}</td>`;
+  bands.forEach(b => {
+    html += `<td class="b${b.replace('m','')}"></td>`;
+  });
 
+  tr.innerHTML = html;
   tbody.appendChild(tr);
 });
 
@@ -102,7 +111,7 @@ ws.onmessage = (event) => {
   const data = JSON.parse(event.data);
 
   const call = data.call.toUpperCase();
-  const band = data.band;
+  const band = data.band; // ex: "40m"
 
   let row = document.getElementById(call);
 
@@ -112,22 +121,21 @@ ws.onmessage = (event) => {
     row.id = call;
     row.classList.add("new-station");
 
-    row.innerHTML = `
-      <td><span class="new-tag">NEW</span>${call}</td>
-      <td class="b160"></td>
-      <td class="b80"></td>
-      <td class="b40"></td>
-    `;
+    let html = `<td><span class="new-tag">NEW</span>${call}</td>`;
+    bands.forEach(b => {
+      html += `<td class="b${b.replace('m','')}"></td>`;
+    });
 
+    row.innerHTML = html;
     tbody.appendChild(row);
     saveNewStation(call);
     sortTable();
   }
 
-  // Coloration
-  if (band === "160m") row.querySelector(".b160").classList.add("active160");
-  if (band === "80m")  row.querySelector(".b80").classList.add("active80");
-  if (band === "40m")  row.querySelector(".b40").classList.add("active40");
+  // Coloration dynamique
+  const className = ".b" + band.replace("m","");
+  const cell = row.querySelector(className);
+  if (cell) cell.classList.add("active" + band.replace("m",""));
 
   // Compteur
   qsoCount++;
@@ -140,7 +148,8 @@ document.getElementById("resetBtn").addEventListener("click", () => {
   qsoCount = 0;
   qsoBox.textContent = "QSO : 0";
 
-  document.querySelectorAll(".b160, .b80, .b40").forEach(cell => {
-    cell.classList.remove("active160", "active80", "active40");
+  bands.forEach(b => {
+    document.querySelectorAll(".b" + b.replace("m",""))
+      .forEach(cell => cell.classList.remove("active" + b.replace("m","")));
   });
 });
